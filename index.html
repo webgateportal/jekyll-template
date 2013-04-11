@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Show last 5 posts here -->
+{% for post in site.posts limit: 20  %}
+
+	<div class="article">
+		<span class="pull-right category"><i class="icon-tag"></i> {{ post.categories | category_links }}</span>
+	
+	    <h2><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h2>
+			
+	    <span class="date"><time datetime="{{post.date|date:"%F"}}">{{post.date|date:"%b %d, %Y"}}</time></span>
+	    by
+	    <span class="author">{% if post.author %}{{post.author}}{% else %}{{site.author}}{% endif%}</span>
+	
+	    <div class="entry">{{ post.excerpt }}</div>
+	
+
+	</div>
+{% endfor %}
